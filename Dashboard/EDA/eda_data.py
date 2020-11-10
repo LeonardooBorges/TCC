@@ -16,8 +16,8 @@ root = "../"
 # import dask.dataframe
 #suicide_df = dask.dataframe.read_csv("suicide.csv")
 #suicide_df = suicide_df.drop(columns=[suicide_df.columns[0]])
-suicide_df = pd.read_csv("EDA/suicide_final.csv", index_col=0)
-suicide_muncod_df = pd.read_csv("EDA/suicide_rates_08_18.csv", index_col=0)
+suicide_df = pd.read_csv("./EDA/suicide_final.csv", index_col=0)
+suicide_muncod_df = pd.read_csv("./EDA/suicide_rates_08_18.csv", index_col=0)
 
 def get_suicide_data():
     return suicide_df
@@ -95,9 +95,9 @@ def plot_dtobito():
     st.altair_chart((graph).configure_view(strokeOpacity=0).configure_title(fontSize=12).properties(width=700, height=410))
 
 def plot_codmunres():
-    gdf = gpd.read_file('EDA/BRMUE250GC_SIR.shp')
+    gdf = gpd.read_file('./EDA/BRMUE250GC_SIR.shp')
     
-    cadmun = pd.read_csv('EDA/CADMUN.csv')
+    cadmun = pd.read_csv('./EDA/CADMUN.csv')
     cadmun = cadmun[["MUNCOD", "MUNCODDV"]]
   
     gdf["CD_GEOCMU"] = gdf["CD_GEOCMU"].astype(int)
